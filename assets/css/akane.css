@@ -1,0 +1,244 @@
+body{
+
+    margin:0;
+    font-family:"Yu Gothic",sans-serif;
+    color:white;
+
+    background-image:url("../images/background/akane-room.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    z-index:-1;
+
+}
+
+.page-container{
+
+    max-width:1200px;
+    margin:auto;
+    padding:40px;
+
+}
+
+h1{
+
+    text-align:center;
+    font-size:3rem;
+
+    text-shadow:
+        0 0 10px black,
+        0 0 20px black;
+
+}
+
+.page-text{
+
+    text-align:center;
+    line-height:1.6;
+    font-size: 26px;
+    font-weight:700;
+    margin-top: -225px;
+    color: #d4af37;
+}
+
+.movie-area {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+
+    border: 1px solid crimson;
+    background: rgba(20,20,20,.55);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 20px;
+}
+
+.button-area{
+
+    text-align:center;
+
+}
+
+.back-button{
+
+    display:inline-block;
+
+    padding:12px 36px;
+
+    background:crimson;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+.back-button:hover{
+
+    background:#ff3355;
+
+}
+
+
+.link-area{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    margin:18px 0;
+
+}
+
+.link-area a{
+
+    padding:12px 30px;
+
+    background:rgba(180,0,0,.8);
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+.link-area a:hover{
+
+    background:crimson;
+
+}
+
+.movie-area iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+.akane-logo {
+    display: block;
+    width: 700px;
+    max-width: 70%;
+    margin: -135px auto 24px;
+}
+
+@media screen and (max-width: 600px) {
+
+    html,
+    body {
+        min-height: 100%;
+    }
+
+    body {
+        min-height: 100dvh;
+        background-attachment: scroll;
+        background-position: center top;
+        background-size: cover;
+        background-color: #12080b;
+    }
+
+    .page-container {
+        width: 100%;
+        min-height: 100dvh;
+        max-width: none;
+
+        padding: 12px 12px 30px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .akane-logo {
+        width: 100%;
+        max-width: 300px;
+
+        /* ロゴ下の謎の余白を詰める */
+        margin: 0 auto -65px;
+    }
+
+    .page-text {
+        width: 100%;
+        max-width: 390px;
+
+        margin: 0 auto 18px;
+        padding: 0 8px;
+        box-sizing: border-box;
+
+        font-size: 16px;
+        line-height: 1.7;
+        font-weight: 700;
+        color: #d4af37;
+
+        text-align: center;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
+    .movie-area {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+
+        margin: 0 auto 18px;
+        box-sizing: border-box;
+    }
+
+    .movie-area iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .link-area {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+
+        width: 100%;
+        gap: 8px;
+        margin: 18px 0;
+    }
+
+    .link-area a {
+        flex: 1;
+        min-width: 0;
+
+        padding: 12px 4px;
+        box-sizing: border-box;
+
+        font-size: 14px;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .back-button {
+        padding: 13px 30px;
+        font-size: 14px;
+    }
+}
+

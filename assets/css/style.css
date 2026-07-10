@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #111;
+    color: #ffffff;
+    font-family: sans-serif;
+}
+
+
+main {
+    padding: 0px;
+}
+
+#lobby {
+    text-align: center;
+}
+
+.site-logo {
+    width: 200%;
+    min-width: 220px;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin: -170px auto 0;
+}
+
+/* ===================================
+   更科朱音ページ
+=================================== */
+
+.akane-page{
+
+    margin:0;
+
+    color:white;
+
+    background:#111;
+
+    font-family:"Yu Gothic",sans-serif;
+
+}
+
+.page-container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:60px 0;
+
+}
+
+.page-text{
+
+    line-height:2;
+
+    margin:40px 0;
+
+}
+
+.movie-area{
+
+    width:100%;
+
+    height:500px;
+
+    background:#222;
+
+    border:2px solid #aa0000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:40px auto;
+
+}
+
+.back-button{
+
+    display:inline-block;
+
+    padding:15px 40px;
+
+    background:#aa0000;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+.back-button:hover{
+
+    background:#d40000;
+
+}
+
+/* =========================
+   館内案内ページ
+========================= */
+
+.guide-page {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url("../images/background/guide-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f5ead6;
+}
+
+.guide-container {
+    height: 100vh;
+    margin: 0;
+    padding: 105px 40px 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.guide-board {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    background: rgba(20,12,8,0.55);
+    border: 2px solid #c9a227;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 0 24px rgba(0,0,0,0.65);
+}
+
+.guide-board h1 {
+  margin: 0 0 24px;
+  font-size: 48px;
+  letter-spacing: 0.18em;
+}
+
+.guide-board p {
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+/* =========================
+   館ロゴ
+========================= */
+
+.guide-logo{
+    position:absolute;
+    top:0px;
+    left:50px;
+    z-index:100;
+}
+
+.guide-logo img{
+    width:400px;
+    height:auto;
+    display:block;
+}
+
+/* =========================
+   案内係 更科朱音
+========================= */
+
+.guide-akane{
+    position: fixed;
+    right: 180px;
+    bottom: 20px;
+    z-index: 10;
+}
+
+.guide-akane img{
+    width: 400px;
+    height: auto;
+}
+
+/* =========================
+   館内案内カード
+========================= */
+
+.guide-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 80px auto 0;
+    max-width: 980px;
+}
+
+.guide-card {
+    width: 240px;
+    min-height: 320px;
+    padding: 34px 28px;
+    box-sizing: border-box;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 248, 220, 0.96),
+            rgba(224, 196, 140, 0.96)
+        );
+    border: 3px solid #c9a227;
+    border-radius: 10px;
+    color: #2b1608;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+}
+
+.guide-card h2{
+    margin:0;
+    font-size: 44px;
+    color:#5b1d12;
+    font-weight:bold;
+}
+
+.card-line{
+    width:70%;
+    height:2px;
+    margin:22px auto 28px;
+    background:#c9a227;
+}
+
+.guide-card p{
+    font-size:20px;
+    line-height:1.8;
+    color:#3a2413;
+}
+
+.guide-button{
+    display:inline-block;
+    width:180px;
+    margin-top:28px;
+    padding:14px 30px;
+    background:#1d1a18;
+    color:#f6ead5;
+    text-decoration:none;
+    border:2px solid #c9a227;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+    transition:.25s;
+}
+
+.guide-button:hover{
+    background:#5a2b16;
+    box-shadow:0 6px 16px rgba(0,0,0,.4);
+}
+
+.guide-card {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.guide-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    border-color: #f4d27b;
+}
+
+/* =========================
+   館内案内 スマホ対応
+========================= */
+
+@media screen and (max-width: 780px) {
+
+    .guide-page {
+        min-height: 100vh;
+        background-position: center top;
+        background-attachment: scroll;
+    }
+
+    .guide-container {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        padding: 125px 16px 60px;
+        overflow: visible;
+    }
+
+    /* 館ロゴ */
+    .guide-logo {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+    .guide-logo img {
+        width: 270px;
+        max-width: 85%;
+        margin: 0 auto;
+    }
+
+    /* 説明部分 */
+   .guide-board {
+    width: calc(100% - 24px);
+    max-width: 400px;
+    padding: 32px 10px 30px;
+}
+
+    .guide-board p {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0;
+}
+
+    /* 朱音 */
+    .guide-akane {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        z-index: 10;
+        width: 210px;
+        margin: -20px auto -50px;
+        transform: translateX(0);
+        pointer-events: none;
+    }
+
+    .guide-akane img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 案内カード */
+    .guide-cards {
+        width: 100%;
+        max-width: 360px;
+        margin: 40px auto 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .guide-card {
+        width: 100%;
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    .guide-card h2 {
+        font-size: 34px;
+        white-space: nowrap;
+    }
+
+    .guide-card p {
+        font-size: 17px;
+    }
+
+    .guide-button {
+        width: 180px;
+        max-width: 100%;
+        padding: 13px 20px;
+        font-size: 17px;
+    }
+
+    /* スマホではタップ時のズレを防ぐ */
+    .guide-card:hover {
+        transform: none;
+    }
+}

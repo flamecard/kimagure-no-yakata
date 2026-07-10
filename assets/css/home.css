@@ -1,0 +1,179 @@
+#lobby {
+position: relative;
+overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+
+    background-image: url("../images/background/lobby.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+.lobby-akane {
+    position: absolute;
+    right: 8%;
+    bottom: 0;
+    height: 65vh;
+    max-height: 720px;
+    z-index: 2;
+}
+.door-link {
+    position: absolute;
+    bottom: 8%;
+    width: 260px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 3;
+
+    background: rgba(0,0,0,0);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+
+    transition: all .25s ease;
+}
+
+.door-link:hover {
+    background: rgba(0,0,0,.35);
+    border: 1px solid rgba(255,220,160,.5);
+}
+
+.door-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}.door-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform .25s ease;
+}
+
+.door-link:hover .door-image {
+    transform: scale(1.05);
+}
+.door-link span {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.4rem;
+    text-shadow: 0 0 8px #000;
+
+    white-space: nowrap;   /* ←追加 */
+}
+
+.door-ws {
+    left: 20%;
+}
+
+.door-akane {
+    left: 42%;
+}
+
+.door-guide {
+    left: 62%;
+}
+
+/* =========================
+   ロビー スマホ表示
+========================= */
+
+@media screen and (max-width: 768px) {
+
+    #lobby {
+        width: 100%;
+        min-height: 100svh;
+        overflow: hidden;
+
+        background-size: cover;
+        background-position: center top;
+    }
+
+    /* ロゴ */
+    .site-logo {
+        position: absolute;
+        top: 3%;
+        left: 50%;
+
+        width: 58%;
+        min-width: 0;
+        max-width: 260px;
+        height: auto;
+
+        margin: 0;
+        transform: translateX(-50%);
+        z-index: 5;
+    }
+
+    /* 扉共通 */
+    .door-link {
+        bottom: 6%;
+
+        width: 29%;
+        max-width: 125px;
+
+        padding: 4px;
+        margin: 0;
+
+        z-index: 3;
+    }
+
+    .door-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .door-link span {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+    /* 左 */
+    .door-ws {
+        left: 2%;
+    }
+
+    /* 中央 */
+    .door-akane {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 右 */
+    .door-guide {
+        left: auto;
+        right: 2%;
+    }
+
+    /* 朱音 */
+    .lobby-akane {
+    right: 2%;
+    bottom: 24%;
+
+    width: 36%;
+    height: auto;
+    max-height: none;
+
+    z-index: 2;
+}
+
+    /* スマホではホバー演出を無効 */
+    .door-link:hover {
+        background: transparent;
+        border-color: transparent;
+    }
+
+    .door-link:hover .door-image {
+        transform: none;
+    }
+}
