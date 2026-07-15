@@ -1,1 +1,412 @@
-/* Guide styles */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+
+    font-family:
+        "Yu Gothic",
+        "Hiragino Kaku Gothic ProN",
+        sans-serif;
+
+    color: #2b160d;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("../images/background/guide-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.guide-container {
+    position: relative;
+
+    width: min(100%, 1200px);
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding: 18px 36px 28px;
+}
+
+/* 館ロゴ */
+
+.guide-logo {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+    margin-bottom: -25px;
+}
+
+.guide-logo a {
+    display: inline-block;
+}
+
+.guide-logo img {
+    display: block;
+
+    width: min(390px, 72vw);
+    height: auto;
+
+    margin: 0 auto;
+
+    filter:
+        drop-shadow(0 0 8px rgba(0, 0, 0, 0.95))
+        drop-shadow(0 0 18px rgba(183, 0, 0, 0.55));
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.guide-logo img:hover {
+    transform: scale(1.03);
+
+    filter:
+        drop-shadow(0 0 10px rgba(0, 0, 0, 1))
+        drop-shadow(0 0 22px rgba(201, 162, 39, 0.75));
+}
+
+/* 館内案内の説明 */
+
+.guide-board {
+    position: relative;
+    z-index: 3;
+
+    width: min(100%, 850px);
+
+    margin: 0 auto 24px;
+    padding: 24px 34px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(255, 246, 214, 0.97),
+            rgba(224, 194, 139, 0.97)
+        );
+
+    border: 4px double #795025;
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.75),
+        inset 0 0 24px rgba(80, 42, 10, 0.24);
+}
+
+.guide-board h1 {
+    margin: 0 0 14px;
+
+    color: #7d1515;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 0.12em;
+
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.guide-board p {
+    margin: 0;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+/* 各部屋のカード */
+
+.guide-cards {
+    position: relative;
+    z-index: 4;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+
+    width: min(100%, 1000px);
+    margin: 0 auto;
+}
+
+.guide-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 260px;
+    padding: 24px 20px 22px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(255, 246, 214, 0.97),
+            rgba(218, 183, 124, 0.97)
+        );
+
+    border: 4px double #795025;
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 15px rgba(0, 0, 0, 0.72),
+        inset 0 0 22px rgba(80, 42, 10, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.guide-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.85),
+        0 0 16px rgba(201, 162, 39, 0.65),
+        inset 0 0 22px rgba(80, 42, 10, 0.2);
+}
+
+.guide-card h2 {
+    margin: 0;
+
+    color: #7d1515;
+    font-size: 1.65rem;
+    letter-spacing: 0.06em;
+}
+
+.card-line {
+    width: 72%;
+    height: 2px;
+
+    margin: 14px auto 16px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #8e612c,
+            transparent
+        );
+}
+
+.guide-card p {
+    flex: 1;
+
+    margin: 0 0 18px;
+
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.75;
+}
+
+/* 部屋へ進むボタン */
+
+.guide-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 170px;
+    padding: 11px 18px;
+
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            #b70000,
+            #5f0000
+        );
+
+    border: 2px solid #c9a227;
+    border-radius: 7px;
+
+    box-shadow:
+        0 0 8px rgba(0, 0, 0, 0.7),
+        inset 0 0 7px rgba(255, 255, 255, 0.13);
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.guide-button:hover {
+    transform: translateY(-2px) scale(1.03);
+    filter: brightness(1.15);
+
+    box-shadow:
+        0 0 13px rgba(201, 162, 39, 0.8),
+        0 0 19px rgba(183, 0, 0, 0.65);
+}
+
+/* 朱音 */
+
+.guide-akane {
+    position: absolute;
+    right: -200px;   /* 少し右へ */
+    bottom: -15px;  /* 少し下へ */
+
+    width: 300px;   /* 少し大きく */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.guide-akane img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    filter:
+        drop-shadow(0 0 9px rgba(0, 0, 0, 0.95))
+        drop-shadow(0 0 16px rgba(183, 0, 0, 0.35));
+}
+
+/* タブレット */
+
+@media screen and (max-width: 1000px) {
+    .guide-container {
+        padding: 18px 24px 34px;
+    }
+
+    .guide-cards {
+        width: min(100%, 860px);
+        gap: 16px;
+    }
+
+    .guide-card {
+        padding: 22px 15px 20px;
+    }
+
+    .guide-akane {
+        width: 235px;
+        right: -55px;
+
+        opacity: 0.92;
+    }
+}
+
+/* スマホ */
+
+@media screen and (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    .guide-container {
+        padding: 14px 14px 34px;
+    }
+
+    .guide-logo {
+        margin-bottom: -12px;
+    }
+
+    .guide-logo img {
+        width: min(330px, 88vw);
+    }
+
+    .guide-board {
+        margin-bottom: 18px;
+        padding: 21px 18px;
+    }
+
+    .guide-board h1 {
+        margin-bottom: 12px;
+        font-size: 2rem;
+    }
+
+    .guide-board p {
+        font-size: 0.92rem;
+        line-height: 1.75;
+    }
+
+    .guide-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+
+        width: min(100%, 440px);
+    }
+
+    .guide-card {
+        min-height: 0;
+        padding: 21px 18px;
+    }
+
+    .guide-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .guide-card p {
+        margin-bottom: 16px;
+        font-size: 0.95rem;
+    }
+
+    .guide-button {
+        width: min(100%, 250px);
+    }
+
+     .guide-akane {
+        position: relative;
+        right: auto;
+        bottom: auto;
+
+        width: min(230px, 62vw);
+
+        margin: 12px auto -18px;
+    }
+}
+
+/* 小さいスマホ */
+
+@media screen and (max-width: 480px) {
+    .guide-container {
+        padding: 10px 9px 28px;
+    }
+
+    .guide-board {
+        padding: 18px 13px;
+        border-width: 3px;
+    }
+
+    .guide-board h1 {
+        font-size: 1.7rem;
+        letter-spacing: 0.08em;
+    }
+
+    .guide-board p {
+        font-size: 0.86rem;
+    }
+
+    .guide-card {
+        padding: 19px 14px;
+        border-width: 3px;
+    }
+
+    .guide-card h2 {
+        font-size: 1.4rem;
+    }
+
+    .guide-card p {
+        font-size: 0.9rem;
+    }
+
+    .guide-button {
+        font-size: 0.92rem;
+    }
+}

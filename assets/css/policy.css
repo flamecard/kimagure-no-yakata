@@ -1,0 +1,273 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+    color: #f5f5f5;
+
+    background-image: url("../images/background/akane-room.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.68);
+
+    z-index: -1;
+}
+
+.policy-container {
+    width: min(100%, 1100px);
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+}
+
+.policy-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-link {
+    display: inline-block;
+}
+
+.akane-logo {
+    display: block;
+    width: min(420px, 80vw);
+    height: auto;
+    margin: 0 auto 10px;
+
+    filter:
+        drop-shadow(0 0 8px rgba(0, 0, 0, 0.95))
+        drop-shadow(0 0 18px rgba(183, 0, 0, 0.7));
+}
+
+.policy-header h1 {
+    margin: 0;
+
+    color: #d4af37;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+    letter-spacing: 0.08em;
+
+    text-shadow:
+        0 0 8px #000,
+        0 0 18px #000,
+        0 0 28px rgba(183, 0, 0, 0.8);
+}
+
+.policy-date {
+    margin-top: 12px;
+    color: #dddddd;
+    font-size: 0.95rem;
+}
+
+.policy-paper {
+    padding: 42px 48px;
+
+    color: #2d1a10;
+
+    background:
+        linear-gradient(
+            rgba(255, 247, 218, 0.95),
+            rgba(229, 205, 158, 0.95)
+        );
+
+    border: 4px double #8b5a2b;
+    border-radius: 14px;
+
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.8),
+        inset 0 0 30px rgba(90, 52, 20, 0.25);
+}
+
+.policy-section {
+    padding: 26px 0;
+    border-bottom: 1px solid rgba(92, 52, 20, 0.35);
+}
+
+.policy-section:first-child {
+    padding-top: 0;
+}
+
+.policy-section:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.policy-section h2 {
+    margin: 0 0 16px;
+
+    color: #7a1616;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    letter-spacing: 0.05em;
+
+    border-left: 7px solid #b70000;
+    padding-left: 14px;
+}
+
+.policy-section p {
+    margin: 0 0 14px;
+
+    font-size: 1.05rem;
+    line-height: 1.9;
+    font-weight: 600;
+}
+
+.policy-section p:last-child {
+    margin-bottom: 0;
+}
+
+.policy-section ul {
+    margin: 14px 0 0;
+    padding-left: 1.5em;
+}
+
+.policy-section li {
+    margin-bottom: 10px;
+
+    font-size: 1.05rem;
+    line-height: 1.8;
+    font-weight: 600;
+}
+
+.prohibited-section h2 {
+    color: #8b0000;
+}
+
+.welcome-section h2 {
+    color: #8b0000;
+}
+
+.final-message {
+    text-align: center;
+}
+
+.final-message h2 {
+    display: inline-block;
+    border-left: none;
+    padding-left: 0;
+}
+
+.final-message p {
+    font-size: 1.15rem;
+}
+
+.policy-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+
+    margin-top: 34px;
+}
+
+.policy-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 220px;
+    padding: 14px 24px;
+
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    background: linear-gradient(
+        180deg,
+        #b70000,
+        #630000
+    );
+
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.8),
+        inset 0 0 8px rgba(255, 255, 255, 0.12);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.policy-button:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 0 16px rgba(212, 175, 55, 0.8),
+        0 0 24px rgba(183, 0, 0, 0.7);
+
+    filter: brightness(1.15);
+}
+
+.lobby-button {
+    background: linear-gradient(
+        180deg,
+        #3f3f3f,
+        #111111
+    );
+}
+
+@media screen and (max-width: 480px) {
+    .policy-container {
+        padding: 18px 8px 36px;
+    }
+
+    .policy-header h1 {
+        font-size: 1.55rem;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+    }
+
+    .policy-paper {
+        padding: 22px 14px;
+        border-width: 3px;
+    }
+
+    .policy-section {
+        padding: 20px 0;
+    }
+
+    .policy-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .policy-section p,
+    .policy-section li {
+        font-size: 0.92rem;
+        line-height: 1.9;
+        font-weight: 600;
+
+        word-break: normal;
+        overflow-wrap: normal;
+        line-break: strict;
+        text-wrap: pretty;
+    }
+
+    .policy-section ul {
+        padding-left: 1.25em;
+    }
+
+    .policy-section p {
+        text-align: left;
+    }
+
+    .final-message p {
+        text-align: center;
+    }
+}
