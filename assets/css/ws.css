@@ -189,22 +189,28 @@ backdrop-filter: blur(8px);
     }
 
     .ws-page-logo{
-    margin-top: 20px;
-    margin-bottom: 8px;
-}
+        margin-top: 20px;
+        margin-bottom: 8px;
+    }
 
-.ws-page-logo img {
-    width: 85%;
-    max-width: 300px;
-    height: auto;
-}
+    .ws-page-logo img {
+        width: 85%;
+        max-width: 300px;
+        height: auto;
+    }
 
-    /* ここに追加 */
     .ws-section{
         margin-bottom:16px;
     }
 
-     .ws-lead{
+    .ws-lead{
         margin-top: 0;
     }
+
+    /* ロビーへ戻ると利用ガイドラインの間隔 */
+    .ws-nav {
+        margin: 24px 0 48px;
+        text-align: center;
+    }
+
 }
