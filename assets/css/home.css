@@ -1,6 +1,6 @@
 #lobby {
-position: relative;
-overflow: hidden;
+    position: relative;
+    overflow: hidden;
     width: 100%;
     min-height: 100vh;
 
@@ -16,71 +16,99 @@ overflow: hidden;
 
     text-align: center;
 }
+
+/* =========================
+   朱音
+========================= */
+
 .lobby-akane {
     position: absolute;
-    right: 8%;
+    right: 1%;
     bottom: 0;
-    height: 65vh;
-    max-height: 720px;
+
+    height: 58vh;
+    max-height: 650px;
+
     z-index: 2;
 }
+
+/* =========================
+   扉 共通
+========================= */
+
 .door-link {
     position: absolute;
     bottom: 8%;
+
     width: 260px;
+
     text-align: center;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+
     z-index: 3;
 
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
+
     padding: 10px;
+
     border-radius: 10px;
     border: 1px solid transparent;
 
-    transition: all .25s ease;
+    transition: all 0.25s ease;
 }
 
 .door-link:hover {
-    background: rgba(0,0,0,.35);
-    border: 1px solid rgba(255,220,160,.5);
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 220, 160, 0.5);
 }
 
 .door-image {
     width: 100%;
     height: auto;
+
     display: block;
-}.door-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform .25s ease;
+
+    transition: transform 0.25s ease;
 }
 
 .door-link:hover .door-image {
     transform: scale(1.05);
 }
+
 .door-link span {
     display: block;
+
     margin-top: 10px;
+
     font-size: 1.4rem;
+
     text-shadow: 0 0 8px #000;
 
-    white-space: nowrap;   /* ←追加 */
+    white-space: nowrap;
 }
 
+/* =========================
+   PC版 扉配置
+========================= */
+
 .door-ws {
-    left: 20%;
+    left: 5%;
 }
 
 .door-akane {
-    left: 42%;
+    left: 27%;
 }
 
 .door-guide {
-    left: 62%;
+    left: 49%;
 }
+
+.door-shop {
+    left: 71%;
+}
+
 
 /* =========================
    ロビー スマホ表示
@@ -91,15 +119,20 @@ overflow: hidden;
     #lobby {
         width: 100%;
         min-height: 100svh;
+
         overflow: hidden;
 
         background-size: cover;
         background-position: center top;
     }
 
-    /* ロゴ */
+    /* =========================
+       ロゴ
+    ========================= */
+
     .site-logo {
         position: absolute;
+
         top: 3%;
         left: 50%;
 
@@ -109,15 +142,18 @@ overflow: hidden;
         height: auto;
 
         margin: 0;
+
         transform: translateX(-50%);
+
         z-index: 5;
     }
 
-    /* 扉共通 */
-    .door-link {
-        bottom: 6%;
+    /* =========================
+       扉 共通
+    ========================= */
 
-        width: 29%;
+    .door-link {
+        width: 34%;
         max-width: 125px;
 
         padding: 4px;
@@ -132,42 +168,74 @@ overflow: hidden;
     }
 
     .door-link span {
-    margin-top: 6px;
-    font-size: 12px;
-    line-height: 1.2;
-    white-space: nowrap;
-}
+        margin-top: 4px;
 
-    /* 左 */
+        font-size: 11px;
+        line-height: 1.2;
+
+        white-space: nowrap;
+    }
+
+    /* =========================
+       上段
+       WS部 / 更科朱音
+    ========================= */
+
     .door-ws {
-        left: 2%;
+        left: 12%;
+        bottom: 28%;
     }
 
-    /* 中央 */
     .door-akane {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    /* 右 */
-    .door-guide {
         left: auto;
-        right: 2%;
+        right: 12%;
+        bottom: 28%;
+
+        transform: none;
     }
 
-    /* 朱音 */
+    /* =========================
+       下段
+       館内案内 / 通販
+    ========================= */
+
+    .door-guide {
+        left: 12%;
+        right: auto;
+        bottom: 5%;
+    }
+
+    .door-shop {
+        left: auto;
+        right: 12%;
+        bottom: 5%;
+    }
+
+    /* =========================
+       朱音
+    ========================= */
+
     .lobby-akane {
-    right: 2%;
-    bottom: 24%;
+        position: absolute;
 
-    width: 36%;
-    height: auto;
-    max-height: none;
+        left: 50%;
+        right: auto;
 
-    z-index: 2;
-}
+        bottom: 27%;
 
-    /* スマホではホバー演出を無効 */
+        width: 27%;
+        height: auto;
+        max-height: none;
+
+        transform: translateX(-50%);
+
+        z-index: 4;
+    }
+
+    /* =========================
+       スマホではホバー無効
+    ========================= */
+
     .door-link:hover {
         background: transparent;
         border-color: transparent;
@@ -175,162 +243,5 @@ overflow: hidden;
 
     .door-link:hover .door-image {
         transform: none;
-    }
-}
-
-.site-footer {
-    position: fixed;
-    right: 20px;
-    bottom: 14px;
-    z-index: 20;
-}
-
-.site-footer a {
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-
-    padding: 8px 14px;
-
-    background: rgba(0, 0, 0, 0.65);
-    border: 1px solid #c9a227;
-    border-radius: 6px;
-
-    text-shadow: 0 0 6px #000;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.site-footer a:hover {
-    transform: translateY(-2px);
-    background: rgba(183, 0, 0, 0.85);
-    box-shadow: 0 0 12px rgba(201, 162, 39, 0.8);
-}
-
-@media screen and (max-width: 768px) {
-    .site-footer {
-        right: 10px;
-        bottom: 10px;
-    }
-
-    .site-footer a {
-        font-size: 0.82rem;
-        padding: 7px 10px;
-    }
-}
-
-.site-footer {
-    position: fixed;
-    right: 20px;
-    bottom: 14px;
-    z-index: 20;
-
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 8px 14px;
-
-    background: rgba(0, 0, 0, 0.65);
-    border: 1px solid #c9a227;
-    border-radius: 6px;
-
-    text-shadow: 0 0 6px #000;
-}
-
-.site-footer a {
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.site-footer span {
-    color: #c9a227;
-}
-
-.site-footer a:hover {
-    color: #ffd95a;
-}
-
-@media screen and (max-width: 768px) {
-    .site-footer {
-        right: 10px;
-        bottom: 10px;
-        gap: 5px;
-        padding: 7px 10px;
-    }
-
-    .site-footer a {
-        font-size: 0.78rem;
-    }
-}
-
-.site-footer {
-    position: fixed;
-    right: 15px;
-    bottom: 12px;
-    z-index: 30;
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 8px 12px;
-
-    background: rgba(0, 0, 0, 0.78);
-    border: 1px solid #c9a227;
-    border-radius: 6px;
-
-    color: #ffffff;
-    font-size: 0.88rem;
-    font-weight: 700;
-
-    text-shadow: 0 0 6px #000;
-}
-
-.site-footer a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.site-footer a:visited {
-    color: #ffffff;
-}
-
-.site-footer a:hover {
-    color: #ffd95a;
-}
-
-.site-footer span {
-    color: #c9a227;
-}
-
-.footer-copy {
-    color: #ffffff;
-    white-space: nowrap;
-}
-
-@media screen and (max-width: 768px) {
-    .site-footer {
-        position: static;
-
-        justify-content: center;
-        flex-wrap: wrap;
-
-        width: calc(100% - 20px);
-        margin: 10px auto;
-        padding: 8px 10px;
-
-        font-size: 0.76rem;
-    }
-
-    .footer-copy {
-        width: 100%;
-        text-align: center;
     }
 }
