@@ -114,127 +114,82 @@
    ロビー スマホ表示
 ========================= */
 
-@media screen and (max-width: 768px) {
-
+@media screen and (max-width: 1024px) {
+    /* Keep each item in normal flow so short screens and wrapped labels
+       increase the lobby height instead of overlapping the next row. */
     #lobby {
-        width: 100%;
+        min-height: 100vh;
         min-height: 100svh;
-
-        overflow: hidden;
-
-        background-size: cover;
+        padding: 20px 16px 28px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 170px));
+        gap: 16px 20px;
+        justify-content: center;
+        align-content: center;
+        align-items: start;
         background-position: center top;
     }
 
-    /* =========================
-       ロゴ
-    ========================= */
-
-    .site-logo {
-        position: absolute;
-
-        top: 3%;
-        left: 50%;
-
-        width: 58%;
-        min-width: 0;
-        max-width: 260px;
-        height: auto;
-
-        margin: 0;
-
-        transform: translateX(-50%);
-
-        z-index: 5;
+    .logo-area {
+        display: contents;
     }
 
-    /* =========================
-       扉 共通
-    ========================= */
+    .site-logo {
+        position: static;
+        grid-column: 1 / -1;
+        grid-row: 1;
+        justify-self: center;
+        width: 58vw;
+        min-width: 0;
+        max-width: 240px;
+        height: auto;
+        margin: 0;
+        transform: none;
+    }
+
+    .lobby-akane {
+        position: static;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: center;
+        width: auto;
+        height: 140px;
+        max-height: none;
+        max-width: 100%;
+        object-fit: contain;
+        transform: none;
+    }
 
     .door-link {
-        width: 34%;
-        max-width: 125px;
-
-        padding: 4px;
+        position: static;
+        justify-self: center;
+        width: 100%;
+        max-width: 150px;
+        min-width: 0;
+        padding: 6px;
         margin: 0;
-
-        z-index: 3;
+        transform: none;
     }
 
     .door-image {
         width: 100%;
-        height: auto;
+        height: clamp(145px, 42vw, 190px);
+        object-fit: contain;
     }
 
     .door-link span {
-        margin-top: 4px;
-
-        font-size: 11px;
-        line-height: 1.2;
-
-        white-space: nowrap;
+        margin-top: 6px;
+        font-size: 14px;
+        line-height: 1.5;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-shadow: 0 1px 4px #000, 0 0 8px #000;
     }
 
-    /* =========================
-       上段
-       WS部 / 更科朱音
-    ========================= */
-
-    .door-ws {
-        left: 12%;
-        bottom: 28%;
-    }
-
-    .door-akane {
-        left: auto;
-        right: 12%;
-        bottom: 28%;
-
-        transform: none;
-    }
-
-    /* =========================
-       下段
-       館内案内 / 通販
-    ========================= */
-
-    .door-guide {
-        left: 12%;
-        right: auto;
-        bottom: 5%;
-    }
-
-    .door-shop {
-        left: auto;
-        right: 12%;
-        bottom: 5%;
-    }
-
-    /* =========================
-       朱音
-    ========================= */
-
-    .lobby-akane {
-        position: absolute;
-
-        left: 50%;
-        right: auto;
-
-        bottom: 27%;
-
-        width: 27%;
-        height: auto;
-        max-height: none;
-
-        transform: translateX(-50%);
-
-        z-index: 4;
-    }
-
-    /* =========================
-       スマホではホバー無効
-    ========================= */
+    .door-ws { grid-column: 1; grid-row: 3; }
+    .door-akane { grid-column: 2; grid-row: 3; }
+    .door-guide { grid-column: 1; grid-row: 4; }
+    .door-shop { grid-column: 2; grid-row: 4; }
 
     .door-link:hover {
         background: transparent;
