@@ -120,12 +120,13 @@
     #lobby {
         min-height: 100vh;
         min-height: 100svh;
-        padding: 20px 16px 28px;
+        /* Leave the chandelier clear before the logo and door rows. */
+        padding: max(36svh, 300px) 16px 28px;
         display: grid;
         grid-template-columns: minmax(0, 150px) minmax(0, 100px) minmax(0, 150px);
         gap: 20px 6px;
         justify-content: center;
-        align-content: center;
+        align-content: start;
         align-items: start;
         background-position: center top;
     }
@@ -139,9 +140,9 @@
         grid-column: 1 / -1;
         grid-row: 1;
         justify-self: center;
-        width: 58vw;
+        width: 52vw;
         min-width: 0;
-        max-width: 240px;
+        max-width: 220px;
         height: auto;
         margin: 0;
         transform: none;
