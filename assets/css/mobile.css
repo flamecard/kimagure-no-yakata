@@ -1,0 +1,85 @@
+/* Phrase boundaries are authored in HTML so Japanese wraps consistently,
+   including on browsers without automatic phrase segmentation. */
+@media screen and (max-width: 1024px) {
+    .door-link span { overflow-wrap: normal; word-break: keep-all; }
+    .site-footer a { white-space: nowrap; }
+    .site-footer > span { display: none; }
+    .site-footer { column-gap: 1em; row-gap: 8px; }
+    .footer-copy { overflow-wrap: normal; }
+    .footer-copy .text-unit { display: inline-block; }
+}
+
+@media screen and (max-width: 768px) {
+    .text-unit {
+        display: inline-block;
+        max-width: 100%;
+        vertical-align: top;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        line-break: strict;
+    }
+    .desktop-break { display: none; }
+    h1, h2, h3 { text-wrap: balance; line-break: strict; }
+    p, li { text-wrap: pretty; line-break: strict; }
+    .ws-room { padding: 24px 16px 32px; }
+    .ws-section { padding: 20px 16px; }
+    .ws-lead { font-size: clamp(16px, 4.5vw, 20px); line-height: 1.8; }
+    .deck-grid { grid-template-columns: minmax(0, 1fr); }
+    .deck-card { min-width: 0; padding: 18px 16px; }
+    .deck-card h3 { font-size: 1.1rem; }
+    .deck-card p { font-size: clamp(14px, 3.7vw, 16px); }
+    .deck-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .deck-links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        min-width: 0;
+        min-height: 44px;
+        padding: 10px 4px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    .ws-nav a { white-space: nowrap; }
+    .button-area {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        max-width: 440px;
+        margin-inline: auto;
+    }
+    .button-area .back-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        min-height: 48px;
+        padding: 12px 6px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    .akane-page .page-text { font-size: clamp(14px, 3.8vw, 16px); line-height: 1.9; }
+    .guide-board p { text-wrap: balance; }
+    .guide-card p { max-width: 22em; text-wrap: balance; }
+    .guide-button { white-space: nowrap; min-width: 0; }
+    .policy-container { padding: 20px 12px 36px; }
+    .policy-header h1 {
+        white-space: normal;
+        font-size: clamp(22px, 5.8vw, 30px);
+        letter-spacing: 0.02em;
+        line-height: 1.6;
+    }
+    .policy-paper { padding: 24px 16px; }
+    .policy-section h2 { font-size: clamp(18px, 4.7vw, 24px); padding-left: 10px; }
+    .policy-section p, .policy-section li { font-size: 15px; line-height: 1.9; }
+    .policy-navigation { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .policy-button { min-width: 0; width: 100%; padding: 14px 8px; font-size: 16px; white-space: nowrap; }
+}
+
+@media screen and (max-width: 360px) {
+    .ws-room { padding-inline: 12px; }
+    .ws-section { padding-inline: 12px; }
+    .deck-card { padding-inline: 12px; }
+    .policy-paper { padding-inline: 12px; }
+    .policy-section p, .policy-section li { font-size: 14px; }
+}
