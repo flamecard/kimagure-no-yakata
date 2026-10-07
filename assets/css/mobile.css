@@ -1,3 +1,5 @@
+.footer-copy .text-unit { color: inherit; }
+
 /* Phrase boundaries are authored in HTML so Japanese wraps consistently,
    including on browsers without automatic phrase segmentation. */
 @media screen and (max-width: 1024px) {
