@@ -1,0 +1,37 @@
+/* Keep logo links visually identical to the existing images. */
+.home-logo-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.lobby-logo-link {
+    display: block;
+}
+
+/* The link takes the original Akane image's size and margins. */
+a.akane-logo > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* A visible keyboard focus ring without changing layout. */
+.home-logo-link:focus-visible {
+    outline: 2px solid #ffd700;
+    outline-offset: 4px;
+}
+
+@media screen and (max-width: 1024px) {
+    /* The link now occupies the logo's original grid cell. */
+    .lobby-logo-link {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        justify-self: center;
+        width: 52vw;
+        max-width: 220px;
+    }
+
+    .lobby-logo-link .site-logo {
+        width: 100%;
+    }
+}
