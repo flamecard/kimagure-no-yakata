@@ -1,0 +1,32 @@
+[
+  {
+    "id": "thumbnail",
+    "name": "サムネイル作成ソフト",
+    "status": "配布準備中・友人によるテスト中",
+    "summary": "サムネイルづくりのために制作している自作ソフトです．Windows用インストーラーを無料で配布する予定です．",
+    "features": ["主な機能の詳細は公開時に掲載します．"],
+    "os": "Windows（対応バージョンは公開時に掲載）",
+    "price": "無料配布予定",
+    "license": "公開時に掲載",
+    "version": null,
+    "updated": null,
+    "screenshot": null,
+    "history": [],
+    "release": null
+  },
+  {
+    "id": "video-editor",
+    "name": "動画編集ソフト",
+    "status": "開発中",
+    "summary": "Adobe Premiere Proの代替を目指して開発している自作の動画編集ソフトです．完成後はこのページで配布情報をお知らせします．",
+    "features": ["主な機能の詳細は公開時に掲載します．"],
+    "os": "公開時に掲載",
+    "price": "未定",
+    "license": "未定",
+    "version": null,
+    "updated": null,
+    "screenshot": null,
+    "history": [],
+    "release": null
+  }
+]
