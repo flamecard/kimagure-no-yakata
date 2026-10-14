@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def text(value):
-    return re.sub(r"([，．])", r'\1<br class="punctuation-break">', html.escape(value))
+    return re.sub(r"([，．！])", r'\1<br class="punctuation-break">', html.escape(value))
 
 
 def download(software):
