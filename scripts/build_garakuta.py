@@ -41,7 +41,7 @@ def download(software):
 
 
 def card(item):
-    info = [("対応OS", item["os"]), ("配布価格", item["price"]), ("ライセンス", item["license"]), ("最新バージョン", item["version"] or "未公開"), ("更新日", item["updated"] or "未公開")]
+    info = [("対応OS", item["os"]), ("ライセンス", item["license"]), ("最新バージョン", item["version"] or "未公開"), ("更新日", item["updated"] or "未公開")]
     details = ''.join(f'<div><dt>{key}</dt><dd>{text(value)}</dd></div>' for key, value in info)
     features = ''.join(f'<li>{text(value)}</li>' for value in item["features"])
     history = ''.join(f'<li>{text(value)}</li>' for value in item["history"]) or '<li>公開後に掲載します．<br class="punctuation-break"></li>'
