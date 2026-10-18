@@ -1,24 +1,37 @@
 [
   {
     "id": "thumbnail",
-    "name": "サムネイル作成ソフト",
-    "status": "配布準備中",
+    "name": "気まぐれサムネ工房",
+    "status": "公開中",
     "summary": "動画投稿サイトのサムネイルや，A4サイズのポスター作りにどうぞ！他のサイズへの対応も，適宜行う予定です．",
-    "features": ["主な機能の詳細は公開時に掲載します．"],
-    "os": "Windows（対応バージョンは公開時に掲載）",
-    "license": "公開時に掲載",
-    "version": null,
-    "updated": null,
+    "features": [
+      "HD・A4の縦横サイズでサムネイルやポスターを制作．",
+      "文字の装飾・画像の配置・レイヤーの並べ替えに対応．",
+      "PNG・JPEGへの書き出しと編集データの保存・読み込み．",
+      "インストールと画像編集はオフラインで利用できます．"
+    ],
+    "os": "Windows 10／11（Intel・AMD 64bit）",
+    "license": "無料で利用できます．商用利用もOKです．クレジット表記は任意ですが，記載していただけると嬉しいです．表記例：気まぐれサムネ工房（気まぐれの館）",
+    "version": "1.9.2",
+    "updated": "2026/10/18",
     "screenshot": null,
-    "history": [],
-    "release": null
+    "history": [
+      "v1.9.2：新規インストールと旧版からの更新を統合．v1.9.1までの編集機能を収録．"
+    ],
+    "release": {
+      "repository": "flamecard/kimagure-no-yakata",
+      "tag": "thumbnail-v1.9.2",
+      "asset": "KimagureThumbnailStudio-Setup-v1.9.2.exe"
+    }
   },
   {
     "id": "video-editor",
     "name": "動画編集ソフト",
     "status": "開発中",
     "summary": "動画ソフト開発中",
-    "features": ["主な機能の詳細は公開時に掲載します．"],
+    "features": [
+      "主な機能の詳細は公開時に掲載します．"
+    ],
     "os": "公開時に掲載",
     "license": "未定",
     "version": null,

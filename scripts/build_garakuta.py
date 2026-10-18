@@ -37,7 +37,7 @@ def download(software):
     url = asset["browser_download_url"]
     if not url.startswith(f"https://github.com/{repo}/releases/download/"):
         raise ValueError("Unexpected asset URL")
-    return f'<a class="guide-button" href="{html.escape(url, quote=True)}">Windows用をダウンロード</a>'
+    return f'<a class="guide-button" href="{html.escape(url, quote=True)}">Windows用をダウンロード</a><p class="release-note">新規インストール・更新共通版．ダウンロードしたインストーラーを開き，画面の案内に沿って進めてください．更新時はソフトを閉じてください．</p>'
 
 
 def card(item):
@@ -91,7 +91,7 @@ def main():
     <div class="software-grid">{cards}</div>
     <section class="guide-board usage-notes" aria-labelledby="usage-title">
       <h2 id="usage-title">利用規約・注意事項</h2>
-      <p>配布ファイルはGitHub Releasesで公開します．<br class="punctuation-break">実際のインストーラーが用意できるまでは，<br class="punctuation-break">ダウンロードリンクを掲載しません．<br class="punctuation-break">各ソフトの利用条件・ライセンス・詳しい動作環境は，<br class="punctuation-break">公開時に掲載します．<br class="punctuation-break">ダウンロード前に各ソフトの案内をご確認ください．<br class="punctuation-break"></p>
+      <p>配布ファイルはGitHub Releasesで公開します．<br class="punctuation-break">実際のインストーラーが用意できるまでは，<br class="punctuation-break">ダウンロードリンクを掲載しません．<br class="punctuation-break">各ソフトの利用条件・対応OSは，<br class="punctuation-break">上の紹介欄をご確認ください．<br class="punctuation-break">使用する画像・フォントなどの素材には，<br class="punctuation-break">それぞれの利用条件が適用されます．<br class="punctuation-break"></p>
       <a href="https://github.com/flamecard/kimagure-no-yakata/releases">配布先のGitHub Releasesを見る</a>
     </section>
     <nav class="garakuta-navigation" aria-label="館内ナビゲーション"><a class="guide-button" href="../">ロビーへ戻る</a><a class="guide-button" href="../guide/">館内案内へ</a></nav>
