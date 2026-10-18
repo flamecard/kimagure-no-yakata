@@ -81,7 +81,7 @@ def main():
 </head>
 <body class="garakuta-page">
   <main class="guide-container">
-    <div class="guide-logo"><a href="../" class="home-logo-link" aria-label="気まぐれの館 トップページへ戻る"><img src="../assets/images/logo/kimagure-logo.png" alt="気まぐれの館"></a></div>
+    <div class="guide-logo"><a href="../" class="home-logo-link" aria-label="気まぐれの館 トップページへ戻る"><img src="../assets/images/logo/kimagure-logo.webp" alt="気まぐれの館"></a></div>
     <header class="guide-board garakuta-intro">
       <p class="room-label">気まぐれにつくったものを置く部屋</p>
       <h1>ガラクタ置き場</h1>
