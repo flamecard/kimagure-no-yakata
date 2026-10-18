@@ -14,7 +14,7 @@
     "license": "無料で利用できます．商用利用もOKです．クレジット表記は任意ですが，記載していただけると嬉しいです．表記例：気まぐれサムネ工房（気まぐれの館）",
     "version": "1.9.2",
     "updated": "2026/10/18",
-    "screenshot": null,
+    "screenshot": "assets/images/software/thumbnail-studio-v1.9.1.png",
     "history": [
       "v1.9.2：新規インストールと旧版からの更新を統合．v1.9.1までの編集機能を収録．"
     ],
@@ -22,7 +22,8 @@
       "repository": "flamecard/kimagure-no-yakata",
       "tag": "thumbnail-v1.9.2",
       "asset": "KimagureThumbnailStudio-Setup-v1.9.2.exe"
-    }
+    },
+    "screenshot_caption": "編集画面（v1.9.1）．画像をクリックすると拡大できます．"
   },
   {
     "id": "video-editor",

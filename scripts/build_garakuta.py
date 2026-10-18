@@ -52,6 +52,11 @@ def card(item):
         if not resolved.is_relative_to(ROOT) or not resolved.is_file():
             raise ValueError("Screenshot must exist in the repository")
         screenshot = f'<img class="software-screenshot" src="../{html.escape(path, quote=True)}" alt="{html.escape(item["name"], quote=True)}の画面" loading="lazy">'
+    if item.get("screenshot"):
+        image_url = "../" + html.escape(item["screenshot"], quote=True)
+        screenshot = f'<a href="{image_url}" target="_blank" rel="noopener" aria-label="スクリーンショットを拡大">{screenshot}</a>'
+        if item.get("screenshot_caption"):
+            screenshot += '<p class="release-note">' + text(item["screenshot_caption"]) + '</p>'
     return f'''<article class="guide-board software-card" id="{html.escape(item['id'], quote=True)}">
       <span class="software-status">{text(item['status'])}</span>
       <h2>{text(item['name'])}</h2>
