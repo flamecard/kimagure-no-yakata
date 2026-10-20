@@ -42,3 +42,7 @@
 .garakuta-page p, .garakuta-page li, .garakuta-page dd { word-break: normal; overflow-wrap: break-word; text-wrap: pretty; }
 .guide-page .guide-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 768px) { .guide-page .guide-cards { grid-template-columns: minmax(0, 1fr); } }
+
+/* Wrap only between editorial phrases, never inside words such as トップ4. */
+.garakuta-page .copy-phrase { display: inline-block; white-space: nowrap; word-break: keep-all; overflow-wrap: normal; text-wrap: nowrap; }
+@media (max-width: 1100px) { .garakuta-page .software-grid { grid-template-columns: minmax(0, 1fr); } }
