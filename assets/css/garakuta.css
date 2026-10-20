@@ -20,9 +20,9 @@
 .software-card .screenshot-pending { display: grid; place-items: center; min-height: 120px; margin: 24px 0; padding: 16px; border: 1px dashed #98784c; border-radius: 8px; background: #191417; color: #d8c6b1; text-align: center; font-size: .9rem; }
 .software-screenshot { display: block; width: 100%; height: auto; margin: 24px 0; border-radius: 8px; }
 .software-details { margin: 20px 0; }
-.software-details > div { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid #674b35; }
+.software-details > div { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 12px 0; border-bottom: 1px solid #674b35; }
 .software-details dt { font-weight: bold; }
-.software-details dd { margin: 0; overflow-wrap: anywhere; }
+.software-details dd { margin: 0; overflow-wrap: break-word; }
 .download-area { margin-top: 24px; text-align: center; }
 .download-area .release-pending { margin: 0; padding: 13px; background: #31272a; border: 1px solid #98784c; border-radius: 7px; font-weight: bold; }
 .download-area .release-note { margin-top: 10px; font-size: .85rem; color: #d8c6b1; }
@@ -39,6 +39,6 @@
     .garakuta-intro h1 { font-size: clamp(1.4rem, 6.8vw, 2rem); letter-spacing: .04em; }
 }
 .garakuta-page { background-color: #160f11; background-attachment: scroll; }
-.garakuta-page p, .garakuta-page li { word-break: auto-phrase; }
+.garakuta-page p, .garakuta-page li, .garakuta-page dd { word-break: normal; overflow-wrap: break-word; text-wrap: pretty; }
 .guide-page .guide-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 768px) { .guide-page .guide-cards { grid-template-columns: minmax(0, 1fr); } }
