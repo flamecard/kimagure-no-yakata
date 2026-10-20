@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Keep accidental phone visits out of the Windows software catalog.
+    if (/iPhone|iPod|Android.*Mobile|Windows Phone/i.test(navigator.userAgent)) {
+      document.documentElement.style.visibility = "hidden";
+      window.location.replace(new URL("../../", window.location.href).href);
+    }
+  </script>
   <meta name="description" content="気まぐれの館のガラクタ置き場．自作のサムネイル作成ソフトと動画編集ソフトの紹介・配布情報．">
   <title>ガラクタ置き場｜気まぐれの館</title>
   <link rel="stylesheet" href="../assets/css/guide.css">
