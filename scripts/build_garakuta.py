@@ -1,8 +1,10 @@
 """Build a static catalog; verify configured GitHub Release assets before linking."""
 import html
+import hashlib
 import json
 import re
 import urllib.request
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +15,19 @@ def text(value):
 
 
 def download(software):
+    portable = software.get("portable_download")
+    if portable:
+        relative = portable["path"]
+        resolved = (ROOT / relative).resolve()
+        if not resolved.is_relative_to(ROOT) or not resolved.is_file() or resolved.suffix.lower() != ".zip":
+            raise ValueError("Portable ZIP must exist in the repository")
+        if hashlib.sha256(resolved.read_bytes()).hexdigest() != portable["sha256"]:
+            raise ValueError("Portable ZIP checksum does not match")
+        with zipfile.ZipFile(resolved) as archive:
+            if archive.testzip() is not None or not any(name.endswith('/KimagureQR.exe') for name in archive.namelist()):
+                raise ValueError("Portable ZIP is damaged or has no application")
+        url = "../" + relative
+        return f'<a class="guide-button" href="{html.escape(url, quote=True)}" download>Windows用ZIPをダウンロード</a><p class="release-note"><span class="copy-phrase">ZIPを「すべて展開」して，</span><span class="copy-phrase">中のKimagureQR.exeを</span><span class="copy-phrase">ダブルクリックしてください．</span><br class="punctuation-break"><span class="copy-phrase">インストールは不要です．</span></p>'
     release = software.get("release")
     if release is None:
         return '<p class="release-pending">' + text(software["status"]) + '</p><p class="release-note">インストーラーはまだ公開していません．<br class="punctuation-break"></p>'
@@ -42,6 +57,8 @@ def download(software):
 
 def card(item):
     info = [("対応OS", item["os"]), ("ライセンス", item["license"]), ("最新バージョン", item["version"] or "未公開"), ("更新日", item["updated"] or "未公開")]
+    if item.get("verification"):
+        info.append(("確認状況", item["verification"]))
     details = ''.join(f'<div><dt>{key}</dt><dd>{text(value)}</dd></div>' for key, value in info)
     features = ''.join(f'<li>{text(value)}</li>' for value in item["features"])
     history = ''.join(f'<li>{text(value)}</li>' for value in item["history"]) or '<li>公開後に掲載します．<br class="punctuation-break"></li>'

@@ -28,6 +28,33 @@
     "screenshot_caption": "編集画面（v1.9.1）．画像をクリックすると拡大できます．"
   },
   {
+    "id": "qr",
+    "name": "気まぐれQR",
+    "status": "公開中・Windows用",
+    "summary": "URLをQRコードに変換する，Windows専用の小さなソフトです．ブラウザーを開かず，ネット接続なしで作成・保存できます．",
+    "features": [
+      "URLを入力してQRコードを作成．",
+      "PNG・SVG形式で保存．",
+      "画像サイズは512・1024・2048・4096ピクセルから選択．",
+      "汚れや欠けへの強さを4段階で調整．",
+      "インストール・ログイン不要．作成と保存はオフラインで利用できます．"
+    ],
+    "os": "Windows 10（1607以降）／11，Intel・AMD 64bit",
+    "license": "無料で利用できます．同梱ライブラリーには各ライセンスが適用されます．",
+    "version": "1.1.0",
+    "updated": "2026/10/23",
+    "screenshot": null,
+    "history": [
+      "v1.1.0：専用ウィンドウで動くWindows版を公開．PNG・SVG保存に対応．"
+    ],
+    "release": null,
+    "portable_download": {
+      "path": "assets/downloads/KimagureQR-Windows-v1.1.0.zip",
+      "sha256": "4796ead3e82b7105bd7e5b691676016b76814e1ca45755ca9e82e5f7acc75361"
+    },
+    "verification": "QR画像の出力・読み取りを確認済み．Windows実機での起動・画面操作は未確認です．"
+  },
+  {
     "id": "video-editor",
     "name": "動画編集ソフト",
     "status": "開発中",
