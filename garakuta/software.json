@@ -51,8 +51,7 @@
     "portable_download": {
       "path": "assets/downloads/KimagureQR-Windows-v1.1.0.zip",
       "sha256": "4796ead3e82b7105bd7e5b691676016b76814e1ca45755ca9e82e5f7acc75361"
-    },
-    "verification": "QR画像の出力・読み取りを確認済み．Windows実機での起動・画面操作は未確認です．"
+    }
   },
   {
     "id": "video-editor",
