@@ -33,7 +33,7 @@ def decorate(page, mobile=False):
     nav += f'<a href="{pc_href}"' + ('' if mobile else ' aria-current="page"') + '>PC版</a>'
     nav += f'<a href="{mobile_href}"' + (' aria-current="page"' if mobile else '') + '>スマホ版</a></nav>'
     page = page.replace('<h1>ガラクタ置き場</h1>', '<h1>ガラクタ置き場</h1>' + nav)
-    page = re.sub(r'garakuta\.css\?[^"\s]+', 'garakuta.css?v=20261024-variants', page)
+    page = re.sub(r'garakuta\.css\?[^"\s]+', 'garakuta.css?v=20261024-background', page)
     return page
 
 

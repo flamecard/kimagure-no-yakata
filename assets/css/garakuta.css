@@ -58,3 +58,8 @@
   .garakuta-page .software-details > div { grid-template-columns:minmax(0,1fr); }
   .garakuta-page .guide-button { box-sizing:border-box; max-width:100%; min-width:0; white-space:normal; }
 }
+
+/* Scale the desktop background to the viewport, not the full catalog height. */
+@media (min-width: 769px) {
+  .garakuta-page { background-attachment: fixed; }
+}
