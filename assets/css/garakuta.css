@@ -46,3 +46,15 @@
 /* Wrap only between editorial phrases, never inside words such as トップ4. */
 .garakuta-page .copy-phrase { display: inline-block; white-space: nowrap; word-break: keep-all; overflow-wrap: normal; text-wrap: nowrap; }
 @media (max-width: 1100px) { .garakuta-page .software-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Explicit catalog choice also works when automatic device detection is unavailable. */
+.catalog-versions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:18px 0; }
+.catalog-versions a { padding:10px 20px; border:1px solid #c9a227; border-radius:6px; text-decoration:none; }
+.catalog-versions a[aria-current="page"] { background:#651c24; font-weight:bold; }
+@media (max-width: 480px) {
+  .garakuta-page .guide-container { padding-inline:12px; }
+  .garakuta-page .software-card { padding:20px 14px; }
+  .garakuta-page .copy-phrase { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+  .garakuta-page .software-details > div { grid-template-columns:minmax(0,1fr); }
+  .garakuta-page .guide-button { box-sizing:border-box; max-width:100%; min-width:0; white-space:normal; }
+}

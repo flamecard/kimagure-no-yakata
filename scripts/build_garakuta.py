@@ -87,20 +87,17 @@ def card(item):
 
 
 def main():
+    # Preserve the separately maintained Web-app card when rebuilding Windows entries.
+    from sync_garakuta_variants import article, main as sync_variants
+    existing = (ROOT / "garakuta/index.html").read_text(encoding="utf-8")
+    tournament = article(existing, "tournament")
     items = json.loads((ROOT / "garakuta/software.json").read_text(encoding="utf-8"))
-    cards = '\n'.join(card(item) for item in items)
+    cards = tournament + '\n' + '\n'.join(card(item) for item in items)
     page = f'''<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    // Keep accidental phone visits out of the Windows software catalog.
-    if (/iPhone|iPod|Android.*Mobile|Windows Phone/i.test(navigator.userAgent)) {{
-      document.documentElement.style.visibility = "hidden";
-      window.location.replace(new URL("../", window.location.href).href);
-    }}
-  </script>
   <meta name="description" content="気まぐれの館のガラクタ置き場．自作のサムネイル作成ソフトと動画編集ソフトの紹介・配布情報．">
   <title>ガラクタ置き場｜気まぐれの館</title>
   <link rel="stylesheet" href="../assets/css/guide.css?v=webp-20261018">
@@ -115,7 +112,7 @@ def main():
       <p class="room-label">気まぐれにつくったものを置く部屋</p>
       <h1>ガラクタ置き場</h1>
       <p>自作ソフトを紹介する小さな置き場です．<br class="punctuation-break">完成したものから，<br class="punctuation-break">少しずつ公開していきます．<br class="punctuation-break"></p>
-      <nav class="software-nav" aria-label="掲載ソフト">{''.join(f'<a href="#{html.escape(item["id"], quote=True)}">{text(item["name"])}</a>' for item in items)}</nav>
+      <nav class="software-nav" aria-label="掲載ソフト"><a href="#tournament">気まぐれの大会室</a>{''.join(f'<a href="#{html.escape(item["id"], quote=True)}">{text(item["name"])}</a>' for item in items)}</nav>
     </header>
     <div class="software-grid">{cards}</div>
     <section class="guide-board usage-notes" aria-labelledby="usage-title">
@@ -130,6 +127,7 @@ def main():
 </html>
 '''
     (ROOT / "garakuta/index.html").write_text(page, encoding="utf-8")
+    sync_variants()
 
 
 if __name__ == "__main__":

@@ -3,26 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    // Keep accidental phone visits out of the Windows software catalog.
-    if (/iPhone|iPod|Android.*Mobile|Windows Phone/i.test(navigator.userAgent)) {
-      document.documentElement.style.visibility = "hidden";
-      window.location.replace(new URL("../", window.location.href).href);
-    }
-  </script>
-  <meta name="description" content="気まぐれの館のガラクタ置き場．自作のサムネイル作成ソフト・QRコード作成ソフトの無料配布と，TCG大会運営ツール・動画編集ソフトの紹介．">
-  <title>ガラクタ置き場｜気まぐれの館</title>
+<meta name="description" content="気まぐれの館のガラクタ置き場．自作のサムネイル作成ソフト・QRコード作成ソフトの無料配布と，TCG大会運営ツール・動画編集ソフトの紹介．">
+  <title>ガラクタ置き場｜PC版｜気まぐれの館</title>
   <link rel="stylesheet" href="../assets/css/guide.css?v=webp-20261018">
   <link rel="stylesheet" href="../assets/css/mobile.css?v=20261007">
   <link rel="stylesheet" href="../assets/css/logo-links.css?v=20261009">
-  <link rel="stylesheet" href="../assets/css/garakuta.css?v=20261021-phrase-wrap">
+  <link rel="stylesheet" href="../assets/css/garakuta.css?v=20261024-variants">
+
+  <link rel="canonical" href="https://flamecard.github.io/kimagure-no-yakata/garakuta/">
+  <link rel="alternate" media="only screen and (max-width: 768px)" href="https://flamecard.github.io/kimagure-no-yakata/garakuta/mobile/">
+  <script src="../assets/js/catalog-device.js?v=20261024" data-catalog="./"></script>
 </head>
 <body class="garakuta-page">
   <main class="guide-container">
     <div class="guide-logo"><a href="../" class="home-logo-link" aria-label="気まぐれの館 トップページへ戻る"><img src="../assets/images/logo/kimagure-logo.webp" alt="気まぐれの館"></a></div>
     <header class="guide-board garakuta-intro">
       <p class="room-label">気まぐれにつくったものを置く部屋</p>
-      <h1>ガラクタ置き場</h1>
+      <h1>ガラクタ置き場</h1><nav class="catalog-versions" aria-label="表示する版"><a href="?view=pc" aria-current="page">PC版</a><a href="mobile/?view=mobile">スマホ版</a></nav>
       <p><span class="copy-phrase">自作ソフトを紹介する</span><span class="copy-phrase">小さな置き場です．</span><br class="punctuation-break"><span class="copy-phrase">完成したものから，</span><span class="copy-phrase">少しずつ公開していきます．</span></p>
       <nav class="software-nav" aria-label="掲載ソフト"><a href="#tournament">気まぐれの大会室</a><a href="#thumbnail">気まぐれサムネ工房</a><a href="#qr">気まぐれQR</a><a href="#video-editor">動画編集ソフト</a></nav>
     </header>
