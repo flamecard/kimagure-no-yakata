@@ -27,12 +27,6 @@ def decorate(page, mobile=False):
         head += f'  <link rel="alternate" media="only screen and (max-width: 768px)" href="{PC_URL}mobile/">\n'
     head += f'  <script src="{prefix}assets/js/catalog-device.js?v=20261024" data-catalog="{catalog}"></script>\n'
     page = page.replace('</head>', head + '</head>')
-    pc_href = '../?view=pc' if mobile else '?view=pc'
-    mobile_href = '?view=mobile' if mobile else 'mobile/?view=mobile'
-    nav = '<nav class="catalog-versions" aria-label="表示する版">'
-    nav += f'<a href="{pc_href}"' + ('' if mobile else ' aria-current="page"') + '>PC版</a>'
-    nav += f'<a href="{mobile_href}"' + (' aria-current="page"' if mobile else '') + '>スマホ版</a></nav>'
-    page = page.replace('<h1>ガラクタ置き場</h1>', '<h1>ガラクタ置き場</h1>' + nav)
     page = re.sub(r'garakuta\.css\?[^"\s]+', 'garakuta.css?v=20261024-background', page)
     return page
 
