@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#161416">
+  <meta name="description" content="気まぐれQR．ホーム画面へ追加して，URLからQRコードをオフラインで作成．PNG・SVG保存に対応．">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="気まぐれQR">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon-180.png">
+  <link rel="stylesheet" href="./app.css">
+  <title>気まぐれQR｜オフラインQR作成</title>
+  <script src="./qrcodegen.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <img src="./icon.svg" width="46" height="46" alt="">
+    <div><p class="brand">気まぐれの館</p><h1>気まぐれQR</h1></div>
+    <span class="edition">MOBILE<br>1.0.0</span>
+  </header>
+  <main>
+    <div class="offline-status" id="offline-status" role="status"><span class="light" aria-hidden="true"></span><span id="offline-text">オフライン利用を準備中…</span></div>
+    <div class="install-area">
+      <details id="install-guide">
+        <summary>ホーム画面に追加する<span>初回だけ</span></summary>
+        <ol>
+          <li>iPhoneのSafariでこのページを開きます．</li>
+          <li>共有メニューから「ホーム画面に追加」を選び，「ウェブアプリとして開く」をオンにして追加します．</li>
+          <li>追加したアイコンから，ネットに接続した状態で一度開きます．「オフライン利用の準備完了」が出たら使えます．</li>
+        </ol>
+        <p>AndroidはChromeのメニューから「アプリをインストール」または「ホーム画面に追加」を選べます．</p>
+        <p>最後に機内モードで開き直して，QR生成と保存を試してください．</p>
+        <button id="install-button" class="small-button" type="button" hidden>ホーム画面に追加</button>
+      </details>
+      <button id="retry-offline" class="small-button" type="button" hidden>オフラインの準備をやり直す</button>
+      <button id="update-button" class="small-button" type="button" hidden>新しいバージョンに更新</button>
+    </div>
+
+    <section class="card entry" aria-labelledby="input-title">
+      <div class="section-heading"><span class="step">01</span><h2 id="input-title">URLを入力</h2><button id="clear" type="button" class="text-button">クリア</button></div>
+      <form id="qr-form" novalidate>
+        <label class="sr-only" for="url">QRコードにするURL</label>
+        <textarea id="url" rows="3" maxlength="12000" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="https://example.com" aria-describedby="url-hint error"></textarea>
+        <p class="hint" id="url-hint">https:// は省略できます．</p>
+        <div class="settings">
+          <div><label for="size">画像サイズ</label><select id="size"><option value="512">512 px</option><option value="1024" selected>1024 px</option><option value="2048">2048 px</option><option value="4096">4096 px</option></select></div>
+          <div><label for="ecc">誤り訂正</label><select id="ecc"><option value="LOW">L · 約7%</option><option value="MEDIUM" selected>M · 約15%</option><option value="QUARTILE">Q · 約25%</option><option value="HIGH">H · 約30%</option></select></div>
+        </div>
+        <p id="error" class="error" role="alert" hidden></p>
+        <button id="generate" class="primary" type="submit">QRコードを作る <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="privacy">入力したURLは端末内で処理します．</p>
+    </section>
+
+    <section class="card output" aria-labelledby="output-title">
+      <div class="section-heading"><span class="step">02</span><h2 id="output-title">QRコード</h2><span id="result-tag" class="tag">入力待ち</span></div>
+      <div class="qr-stage">
+        <div id="placeholder"><span class="placeholder-mark" aria-hidden="true">▦</span><p>ここにQRコードが表示されます</p></div>
+        <img id="qr-image" alt="生成したQRコード" width="1024" height="1024" hidden>
+      </div>
+      <div class="result-meta"><span id="dimensions">白背景・黒のコード</span><span>余白付き</span></div>
+      <div id="destination" hidden><p class="hint">読み取り先のURL</p><p id="encoded-url"></p></div>
+      <button id="share-png" class="primary" type="button" disabled>画像を保存・共有</button>
+      <div class="save-row"><button id="download-png" class="secondary" type="button" disabled>PNGを保存</button><button id="download-svg" class="secondary" type="button" disabled>SVGを保存</button></div>
+      <p class="save-hint"><span class="copy-phrase">「画像を保存・共有」から</span><span class="copy-phrase">「画像を保存」で写真へ．</span><br><span class="copy-phrase">または「ファイルに保存」で</span><span class="copy-phrase">端末内に保存できます．</span></p>
+      <p class="save-hint"><span class="copy-phrase">共有に対応していない場合は，</span><span class="copy-phrase">表示した画像を長押しして</span><span class="copy-phrase">保存できます．</span></p>
+    </section>
+
+    <details class="help"><summary>使い方・オフライン利用について</summary>
+      <p>QRの作成に通信は使いません．リンク先のWebサイトを見る場合や，クラウドへ保存する場合は，別途ネット接続が必要です．</p>
+      <p>誤り訂正レベルを上げると汚れなどに強くなりますが，同じURLでもQRが細かくなります．通常はMのままで使えます．</p>
+      <p>アプリ用データを端末から削除した場合などは，ネットに接続してオフラインの準備をやり直してください．</p>
+      <p>ホーム画面版はMacやAppleの開発者登録が不要です．App Storeから配布する形式とは異なります．</p>
+      <a href="./LICENSE.txt">使用ライブラリーのライセンス</a>
+    </details>
+    <footer>気まぐれの館 · 気まぐれQR<br><span>好きだから，本気になれる．</span></footer>
+  </main>
+</div>
+<div id="notice" role="status" hidden></div>
+<noscript>QRを作成するにはJavaScriptを有効にしてください．</noscript>
+</body>
+</html>

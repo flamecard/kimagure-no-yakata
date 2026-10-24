@@ -30,8 +30,8 @@
   {
     "id": "qr",
     "name": "気まぐれQR",
-    "status": "公開中・Windows用",
-    "summary": "URLをQRコードに変換する，Windows専用の小さなソフトです．ブラウザーを開かず，ネット接続なしで作成・保存できます．",
+    "status": "公開中",
+    "summary": "URLをQRコードに変換する，Windows用の小さなソフトです．ブラウザーを開かず，ネット接続なしで作成・保存できます．",
     "features": [
       "URLを入力してQRコードを作成．",
       "PNG・SVG形式で保存．",
@@ -51,6 +51,10 @@
     "portable_download": {
       "path": "assets/downloads/KimagureQR-Windows-v1.1.0.zip",
       "sha256": "4796ead3e82b7105bd7e5b691676016b76814e1ca45755ca9e82e5f7acc75361"
+    },
+    "web_app": {
+      "path": "qr/",
+      "version": "1.0.0"
     }
   },
   {

@@ -55,6 +55,17 @@ def download(software):
     return f'<a class="guide-button" href="{html.escape(url, quote=True)}">Windows用をダウンロード</a><p class="release-note">新規インストール・更新共通版．ダウンロードしたインストーラーを開き，画面の案内に沿って進めてください．更新時はソフトを閉じてください．</p>'
 
 
+def web_app(software):
+    config = software.get("web_app")
+    if not config:
+        return ""
+    relative = config["path"]
+    target = (ROOT / "garakuta" / relative / "index.html").resolve()
+    if not target.is_relative_to(ROOT / "garakuta") or not target.is_file():
+        raise ValueError("Home screen app must exist in the catalog")
+    return f'<a class="guide-button" href="{html.escape(relative, quote=True)}">iPhone・Androidのホーム画面版</a><p class="release-note"><span class="copy-phrase">初回だけネットに接続して</span><span class="copy-phrase">ホーム画面へ追加します．</span><br class="punctuation-break"><span class="copy-phrase">追加したアイコンから一度開き，</span><span class="copy-phrase">準備完了の表示を確認すれば，</span><span class="copy-phrase">オフラインで作成・保存できます．</span></p>'
+
+
 def card(item):
     info = [("対応OS", item["os"]), ("ライセンス", item["license"]), ("最新バージョン", item["version"] or "未公開"), ("更新日", item["updated"] or "未公開")]
     if item.get("verification"):
@@ -81,7 +92,7 @@ def card(item):
       {screenshot}
       <h3>主な機能</h3><ul>{features}</ul>
       <dl class="software-details">{details}</dl>
-      <div class="download-area">{download(item)}</div>
+      <div class="download-area">{download(item)}{web_app(item)}</div>
       <h3>更新履歴</h3><ul>{history}</ul>
     </article>'''
 
@@ -132,3 +143,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
