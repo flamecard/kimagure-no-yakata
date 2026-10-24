@@ -27,13 +27,21 @@ def decorate(page, mobile=False):
         head += f'  <link rel="alternate" media="only screen and (max-width: 768px)" href="{PC_URL}mobile/">\n'
     head += f'  <script src="{prefix}assets/js/catalog-device.js?v=20261024" data-catalog="{catalog}"></script>\n'
     page = page.replace('</head>', head + '</head>')
-    page = re.sub(r'garakuta\.css\?[^"\s]+', 'garakuta.css?v=20261024-background', page)
+    page = re.sub(r'garakuta\.css\?[^"\s]+', 'garakuta.css?v=20261024-grid', page)
     return page
 
 
 def main():
     path = ROOT / 'garakuta/index.html'
     desktop = decorate(path.read_text(encoding='utf-8'))
+    # Keep creation tools on the first row and utility tools on the second.
+    order = ('thumbnail', 'video-editor', 'qr', 'tournament')
+    cards = [article(desktop, key) for key in order]
+    desktop = re.sub(r'<div class="software-grid">.*?</article></div>',
+                     '<div class="software-grid">' + '\n'.join(cards) + '</div>', desktop, flags=re.S)
+    links = {key: re.search(r'<a href="#' + re.escape(key) + r'">.*?</a>', desktop).group() for key in order}
+    desktop = re.sub(r'<nav class="software-nav".*?</nav>',
+                     '<nav class="software-nav" aria-label="掲載ソフト">' + ''.join(links[key] for key in order) + '</nav>', desktop, flags=re.S)
     tournament = article(desktop, 'tournament')
     qr = (ROOT / 'garakuta/mobile-qr.html').read_text(encoding='utf-8').strip()
     # Retain the desktop shell and authored phrase boundaries; only replace catalog contents.

@@ -45,7 +45,13 @@
 
 /* Wrap only between editorial phrases, never inside words such as トップ4. */
 .garakuta-page .copy-phrase { display: inline-block; white-space: nowrap; word-break: keep-all; overflow-wrap: normal; text-wrap: nowrap; }
-@media (max-width: 1100px) { .garakuta-page .software-grid { grid-template-columns: minmax(0, 1fr); } }
+/* Desktop keeps two columns; narrow cards may wrap long phrases safely. */
+@media (min-width: 769px) {
+  .garakuta-page .software-card { margin-bottom: 0; padding: 24px; }
+  .garakuta-page .software-grid { margin-bottom: 24px; }
+  .garakuta-page .software-card .copy-phrase { max-width: 100%; white-space: normal; overflow-wrap: break-word; }
+  .garakuta-page .software-card .guide-button { min-width: 0; max-width: 100%; }
+}
 
 /* Explicit catalog choice also works when automatic device detection is unavailable. */
 .catalog-versions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:18px 0; }
