@@ -25,3 +25,9 @@
 気まぐれQRは `assets/downloads/` 内のZIPを直接配布します。`portable_download` にリポジトリ内の `path` とファイルの `sha256` を設定すると，ファイルの存在・ハッシュ・ZIPの整合性・実行ファイルの同梱を確認してリンクを生成します。起動方法は「すべて展開」後に `KimagureQR.exe` を開く形です。
 
 現行の `garakuta/index.html` には大会室の紹介と文節単位の折り返し調整が追加されています。全体を再生成する際は，それらの内容とサムネ工房の最新バージョンを維持してください。
+
+## PC版の一項目だけを更新する
+
+`python scripts/build_garakuta.py --only video-editor` は、公開中のPCページの対象カードと案内名だけを更新します。ほかのソフトの紹介、PC／スマホの切替、背景、スマホ版を変更しません。
+
+KomaCutの配布ZIPはGitHub Releasesに掲載し、`release` に実アセットのタグ・名前・SHA256を指定します。`launch_executable` と `download_note` に起動方法と初回準備を記載してください。公開済みアセットと検査値が一致するときだけリンクを作ります。KomaCut本体の利用条件と、初回に提供元から取得するFFmpeg等の条件は区別して案内します。

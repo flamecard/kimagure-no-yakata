@@ -16,6 +16,24 @@ class ReleaseTests(unittest.TestCase):
         data = {'draft':False,'prerelease':False,'assets':[self.asset]}
         data.update(changes)
         return io.BytesIO(json.dumps(data).encode())
+    def test_portable_release_and_digest(self):
+        self.item['release'].update(asset='KomaCut.zip', sha256='a'*64)
+        self.item.update(launch_executable='KomaCut.exe',download_note='初回準備が必要．')
+        self.asset.update(name='KomaCut.zip',digest='sha256:'+'a'*64)
+        with patch.object(build.urllib.request, 'urlopen', return_value=self.response()):
+            result=build.download(self.item)
+            self.assertIn('Windows用ZIP',result)
+            self.assertIn('KomaCut.exe',result)
+            self.assertNotIn('インストーラー',result)
+        self.asset['digest']='sha256:'+'b'*64
+        with patch.object(build.urllib.request, 'urlopen', return_value=self.response()):
+            with self.assertRaises(ValueError): build.download(self.item)
+    def test_portable_requires_safe_launch_name(self):
+        self.item['release']['asset']='KomaCut.zip'
+        self.asset['name']='KomaCut.zip'
+        self.item['launch_executable']='../escape.exe'
+        with patch.object(build.urllib.request, 'urlopen', return_value=self.response()):
+            with self.assertRaises(ValueError): build.download(self.item)
     def test_pending_has_no_link(self):
         self.item['release'] = None
         self.assertNotIn('href=', build.download(self.item))

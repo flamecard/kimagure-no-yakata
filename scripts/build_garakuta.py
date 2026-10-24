@@ -34,8 +34,8 @@ def download(software):
     repo, tag, filename = (release[key] for key in ("repository", "tag", "asset"))
     if not re.fullmatch(r"[\w.-]+/[\w.-]+", repo):
         raise ValueError("Invalid repository")
-    if not filename.lower().endswith((".exe", ".msi")):
-        raise ValueError("A Windows installer is required")
+    if not filename.lower().endswith((".exe", ".msi", ".zip")):
+        raise ValueError("A Windows installer or portable ZIP is required")
     from urllib.parse import quote
     request = urllib.request.Request(
         f"https://api.github.com/repos/{repo}/releases/tags/{quote(tag, safe='')}",
@@ -52,6 +52,14 @@ def download(software):
     url = asset["browser_download_url"]
     if not url.startswith(f"https://github.com/{repo}/releases/download/"):
         raise ValueError("Unexpected asset URL")
+    if filename.lower().endswith(".zip"):
+        launch = software.get("launch_executable", "")
+        if not re.fullmatch(r"[A-Za-z0-9_-]+\.exe", launch):
+            raise ValueError("Portable ZIP needs a safe executable name")
+        if release.get("sha256") and asset.get("digest") != "sha256:" + release["sha256"]:
+            raise ValueError("Published ZIP digest does not match")
+        note = software.get("download_note", "")
+        return f'<a class="guide-button" href="{html.escape(url, quote=True)}">Windows用ZIPをダウンロード</a><p class="release-note">{text("ZIPを「すべて展開」して，中の" + launch + "をダブルクリックしてください．")}</p><p class="release-note">{text(note)}</p>'
     return f'<a class="guide-button" href="{html.escape(url, quote=True)}">Windows用をダウンロード</a><p class="release-note">新規インストール・更新共通版．ダウンロードしたインストーラーを開き，画面の案内に沿って進めてください．更新時はソフトを閉じてください．</p>'
 
 
@@ -75,6 +83,8 @@ def card(item):
         screenshot = f'<a href="{image_url}" target="_blank" rel="noopener" aria-label="スクリーンショットを拡大">{screenshot}</a>'
         if item.get("screenshot_caption"):
             screenshot += '<p class="release-note">' + text(item["screenshot_caption"]) + '</p>'
+    if item.get("hide_screenshot") and not item.get("screenshot"):
+        screenshot = ""
     return f'''<article class="guide-board software-card" id="{html.escape(item['id'], quote=True)}">
       <span class="software-status">{text(item['status'])}</span>
       <h2>{text(item['name'])}</h2>
@@ -85,6 +95,21 @@ def card(item):
       <div class="download-area">{download(item)}</div>
       <h3>更新履歴</h3><ul>{history}</ul>
     </article>'''
+
+
+def update_one(key):
+    # Keep the current PC shell and every other independently published card.
+    # In particular, stale entries in software.json must not downgrade other apps.
+    from sync_garakuta_variants import article
+    path = ROOT / "garakuta/index.html"
+    existing = path.read_text(encoding="utf-8")
+    items = json.loads((ROOT / "garakuta/software.json").read_text(encoding="utf-8"))
+    item = next(item for item in items if item["id"] == key)
+    replacement = card(item)  # All live release checks finish before any write.
+    old = article(existing, key)
+    updated = existing.replace(old, replacement, 1)
+    updated = re.sub(r'(<a href="#' + re.escape(key) + r'">).*?(</a>)', lambda match: match[1] + html.escape(item["name"]) + match[2], updated)
+    path.write_bytes(updated.encode("utf-8"))
 
 
 def main():
@@ -132,5 +157,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--only", help="Update one PC catalog card without changing other cards or mobile pages")
+    args = parser.parse_args()
+    if args.only:
+        update_one(args.only)
+    else:
+        main()
 

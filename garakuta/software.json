@@ -59,18 +59,33 @@
   },
   {
     "id": "video-editor",
-    "name": "動画編集ソフト",
-    "status": "開発中",
-    "summary": "動画ソフト開発中",
+    "name": "KomaCut Next",
+    "status": "公開中・Windows用",
+    "summary": "動画・画像・音声を組み合わせて編集できる，Windows用の無料動画編集ソフトです．横長の動画から縦長のショート動画まで制作できます．",
     "features": [
-      "主な機能の詳細は公開時に掲載します．"
+      "複数トラックの編集，カット・リップル削除，ドラッグ配置，音声波形と無音の自動カット．",
+      "テロップの直接編集，縦書き，端末のフォント選択，画像の移動・サイズ調整・切り抜き．",
+      "雑音低減・音量調整，音声フェード，映像のつなぎ，速度変更，グリーンバックの切り抜き．",
+      "位置・サイズ・不透明度・切り抜き・音量のキーフレーム．",
+      "複数タイムライン，別ウインドウのプレビュー，画質の切り替えと作業環境の保存．",
+      "横長1920×1080／縦長1080×1920のMP4を60fpsで書き出し．完了通知にも対応．"
     ],
-    "os": "公開時に掲載",
-    "license": "未定",
-    "version": null,
-    "updated": null,
+    "os": "Windows 10／11（Intel・AMD 64bit）．.NET Framework 4.8．",
+    "license": "無料で利用できます．商用利用もOKです．KomaCut本体の再配布は禁止です．クレジット表記は任意です．表記例：KomaCut（気まぐれの館）．外部ツールには提供元のライセンスが適用されます．",
+    "version": "0.13.17",
+    "updated": "2026/10/24",
     "screenshot": null,
-    "history": [],
-    "release": null
+    "history": [
+      "v0.13.17：Windows用の配布版を公開．縦長・横長の編集と書き出し，最初の動画の向きに合わせたタイムライン作成に対応．"
+    ],
+    "release": {
+      "repository": "flamecard/kimagure-no-yakata",
+      "tag": "komacut-v0.13.17",
+      "asset": "KomaCut-Windows-v0.13.17.zip",
+      "sha256": "b4f724f8e2e417c9fe0611a74a9a8e574ea8b51e9ac97786f4b0c6550ba7ea32"
+    },
+    "hide_screenshot": true,
+    "launch_executable": "KomaCut.exe",
+    "download_note": "ZIPは約558KB．初回はネット接続が必要で，動画処理ツール約110MBを公式配布元から自動取得します．準備後の編集・書き出しはオフラインで利用できます．自動文字起こしは別途初回ダウンロードがあります．"
   }
 ]
