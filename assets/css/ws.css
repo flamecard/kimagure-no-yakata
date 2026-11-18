@@ -120,8 +120,7 @@ backdrop-filter: blur(8px);
 .ws-history-more a,
 .ws-archive a {
     margin: 0;
-    text-decoration: underline;
-    text-underline-offset: .2em;
+    text-decoration: none;
 }
 
 .ws-history-more, .ws-archive h1 {
